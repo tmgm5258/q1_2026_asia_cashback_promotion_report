@@ -387,30 +387,60 @@ footer {
 
 /* RAW DATA COLLAPSE */
 .collapse-btn {
-  width: 100%; padding: 14px 20px;
+  width: 100%; padding: 16px 24px;
   background: var(--card); border: 1px solid var(--border);
-  border-radius: 10px; cursor: pointer;
+  border-radius: 12px; cursor: pointer;
   display: flex; align-items: center; justify-content: space-between;
-  font-family: inherit; font-size: 13px; font-weight: 600;
+  font-family: inherit; font-size: 14px; font-weight: 700;
   color: var(--dark-blue); transition: all 0.2s;
   margin-bottom: 8px;
 }
 .collapse-btn:hover { background: var(--bg); }
-.collapse-btn .arrow { transition: transform 0.2s; }
+.collapse-btn .arrow { transition: transform 0.2s; font-size: 12px; }
 .collapse-btn.open .arrow { transform: rotate(180deg); }
 .collapse-content {
   max-height: 0; overflow: hidden;
   transition: max-height 0.3s ease;
   margin-bottom: 16px;
 }
-.collapse-content.open { max-height: 600px; overflow: auto; }
+.collapse-content.open { max-height: 700px; overflow: auto; }
 .search-input {
-  width: 100%; padding: 10px 14px;
+  width: 100%; padding: 12px 16px;
   border: 1px solid var(--border); border-radius: 8px;
   font-family: inherit; font-size: 13px;
-  margin-bottom: 12px; outline: none;
+  margin-bottom: 16px; outline: none; background: var(--bg);
 }
 .search-input:focus { border-color: var(--light-blue); box-shadow: 0 0 0 3px rgba(0,179,235,0.1); }
+
+/* RAW DATA TABLE */
+#rawTable {
+  width: 100%; border-collapse: separate; border-spacing: 0;
+  font-size: 13px;
+}
+#rawTable thead th {
+  position: sticky; top: 0; z-index: 5;
+  background: var(--dark-blue); color: rgba(255,255,255,0.75);
+  padding: 12px 16px;
+  font-size: 10.5px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  text-align: left; white-space: nowrap;
+  border-bottom: 2px solid var(--light-blue);
+}
+#rawTable thead th.td-right { text-align: right; }
+#rawTable tbody tr {
+  transition: background 0.1s;
+}
+#rawTable tbody tr:nth-child(odd) { background: var(--card); }
+#rawTable tbody tr:nth-child(even) { background: var(--bg); }
+#rawTable tbody tr:hover { background: rgba(0,179,235,0.04); }
+#rawTable tbody td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+#rawTable tbody td.td-right { text-align: right; font-variant-numeric: tabular-nums; }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
@@ -591,6 +621,8 @@ footer {
     <div class="ov-item" data-tip="6 eligible countries per T&C clause 3a. Laos is listed as eligible but has 0 participants. South Korea has a separate promotion with different tier thresholds."><div class="ov-label">Countries</div><div class="ov-val">Vietnam, Indonesia, Malaysia, Philippines, India (Laos: 0)</div></div>
     <div class="ov-item" data-tip="CRM export: 13 columns, 467 rows (campaign name: 2026_Q1_Asia_New Active Clients_CB). Data team enrichment: 43 columns, 466 rows (1 test user removed). Jira ticket: PDSPT-265."><div class="ov-label">Data Sources</div><div class="ov-val">CRM export (467 rows) + Data team enrichment (466 rows)</div></div>
     <div class="ov-item" data-tip="1 test user (user_id 671560, Indonesia, zero activity) removed by Data team. 2 rows have null user_id / country / financial data (clients signed up but never completed account setup)."><div class="ov-label">Records After Cleaning</div><div class="ov-val">466 participants (464 with financial data)</div></div>
+    <a href="https://lnd.tmgm.com/en/payback" target="_blank" rel="noopener" class="ov-item" style="text-decoration: none; cursor: pointer; transition: transform 0.15s ease, box-shadow 0.15s ease;" data-tip="Public-facing promotion landing page on TMGM website. Opens in a new tab." onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 12px rgba(0,179,235,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><div class="ov-label">Landing Page</div><div class="ov-val" style="color: var(--light-blue);">lnd.tmgm.com/en/payback ↗</div></a>
+    <a href="https://bidholdinggroup.sharepoint.com/sites/GlobalMarketingTMGM/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FGlobalMarketingTMGM%2FShared%20Documents%2FGeneral%2FMKT%5FPromotions%2F2026%2FQ1%20Promotion%2FRetail%2F%24660%20Cashback%20Promo%20%2D%20ACQ%2FTMGM%202026%20Asia%20Q1%20Client%20Cashback%20Promotion%20%2D%20EN%2Epdf&parent=%2Fsites%2FGlobalMarketingTMGM%2FShared%20Documents%2FGeneral%2FMKT%5FPromotions%2F2026%2FQ1%20Promotion%2FRetail%2F%24660%20Cashback%20Promo%20%2D%20ACQ&p=true&ga=1" target="_blank" rel="noopener" class="ov-item" style="text-decoration: none; cursor: pointer; transition: transform 0.15s ease, box-shadow 0.15s ease;" data-tip="Official Terms & Conditions document on SharePoint. TMGM 2026 Asia Q1 Client Cashback Promotion (EN). Opens in a new tab." onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 12px rgba(0,179,235,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><div class="ov-label">Terms & Conditions</div><div class="ov-val" style="color: var(--light-blue);">T&C Document (SharePoint) ↗</div></a>
   </div>
 
   <div style="margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--border);">
@@ -2956,16 +2988,16 @@ function loadRawTable() {
   let html = '';
   rawData.forEach(r => {
     html += '<tr>';
-    html += '<td>' + r[0] + '</td>';
-    html += '<td>' + r[1] + '</td>';
+    html += '<td style="font-weight:600; color:var(--mid-blue);">' + r[0] + '</td>';
+    html += '<td style="font-weight:500;">' + r[1] + '</td>';
     html += '<td>' + r[2] + '</td>';
-    html += '<td style="text-align:center">' + r[3] + '</td>';
-    html += '<td>' + r[4] + '</td>';
+    html += '<td style="text-align:center; font-weight:600;">' + r[3] + '</td>';
+    html += '<td><span style="display:inline-block; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:600; background:' + (r[4]==='Finish'?'rgba(0,217,48,0.08)':r[4]==='Redeemable'?'rgba(0,179,235,0.08)':'rgba(255,157,36,0.08)') + '; color:' + (r[4]==='Finish'?'#0A8F2C':r[4]==='Redeemable'?'#0090BE':'#CC7A00') + ';">' + r[4] + '</span></td>';
     html += '<td class="td-right">' + r[5] + '</td>';
     html += '<td class="td-right">' + r[6] + '</td>';
     html += '<td class="td-right">' + r[7] + '</td>';
-    html += '<td style="text-align:center">' + r[8] + '</td>';
-    html += '<td style="font-size:11px;color:var(--text-secondary)">' + r[9] + '</td>';
+    html += '<td style="text-align:center; font-weight:600;">' + r[8] + '</td>';
+    html += '<td style="font-size:11px; color:var(--text-secondary); max-width:200px; overflow:hidden; text-overflow:ellipsis;">' + r[9] + '</td>';
     html += '</tr>';
   });
   tbody.innerHTML = html;
